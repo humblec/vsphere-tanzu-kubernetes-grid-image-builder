@@ -23,17 +23,17 @@ function copy_custom_image_builder_files() {
 
 function download_configuration_files() {
     # Download kubernetes configuration file
-    wget -q http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/kubernetes_config.json
+    wget http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/kubernetes_config.json
 
     # Download tkr-bom and tkr metadata files
     # wget -q http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/tkr-bom/tkr-bom.yaml
-    wget -q http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/unified-tkr-vsphere.tar.gz
+    wget http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/unified-tkr-vsphere.tar.gz
     mkdir ${tkr_metadata_folder}
     tar xzf unified-tkr-vsphere.tar.gz -C ${tkr_metadata_folder}
 
     # Download compatibility files
-    wget -q http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/compatibility/vmware-system.compatibilityoffering.json
-    wget -q http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/compatibility/vmware-system.guest.kubernetes.distribution.image.version.json
+    wget http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/compatibility/vmware-system.compatibilityoffering.json
+    wget http://${HOST_IP}:${ARTIFACTS_CONTAINER_PORT}/artifacts/metadata/compatibility/vmware-system.guest.kubernetes.distribution.image.version.json
 }
 
 # Generate packaer input variables based on packer-variables folder
